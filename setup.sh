@@ -42,3 +42,14 @@ sed -i "s/^<html>
 
 mkdir /etc/httpd/sites-available /etc/httpd/sites-enabled
 sed -i "s/^IncludeOptional sites-enabled/*.conf/g" /etc/httpd/conf/httpd.conf
+
+sed i "s/^<VirtualHost *:80>
+    ServerName www.example.com
+    ServerAlias example.com
+    DocumentRoot /var/www/example.com/public_html
+    ErrorLog /var/www/example.com/log/error.log
+    CustomLog /var/www/example.com/log/requests.log combined
+</VirtualHost>/g" /etc/httpd/sites-available/example.com.conf
+
+ln -s /etc/httpd/sites-available/example.com.conf /etc/httpd/sites-enabled/example.com.conf
+systemctl restart httpd
