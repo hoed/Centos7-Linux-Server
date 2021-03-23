@@ -1,5 +1,5 @@
 # Centos Linux-Server
 Create Your Centos Linux Server
 
-Run from root access
+Run from root access:
 sh ./setup.sh
